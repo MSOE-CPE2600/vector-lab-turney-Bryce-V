@@ -12,6 +12,7 @@
 #include "vector.h"
 
 int main(void){
+    //Run the program
     printf("Vector Calculator (Lab 5)\n");
     run_interface();
     return 0;
