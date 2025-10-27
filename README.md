@@ -31,26 +31,23 @@ quit
 
 There are no additional command-line options at startup; all interaction occurs through text commands entered after launch.
 
----
+
 
 ## d. List of Commands
 
-| Command | Description |
-|----------|--------------|
-| `name = x y z` | Create a vector with name `name` and components `(x, y, z)` |
-| `name = a + b` | Create vector `name` as the sum of vectors `a` and `b` |
-| `name = a - b` | Create vector `name` as the difference of `a` and `b` |
-| `name = a * scalar` | Multiply vector `a` by a scalar value |
-| `name = a . b` | Compute the dot product of `a` and `b` (result stored as a vector with only an x-component) |
-| `name = a X b` | Compute the cross product of `a` and `b` |
-| `list` | Display all currently stored vectors |
-| `clear` | Free all allocated memory and remove all vectors |
-| `save <filename>` | Save all stored vectors to a text file |
-| `load <filename>` | Load vectors from a text file (overwrites current memory) |
-| `quit` | Exit the program |
-| `-h` | Display help information |
+ `name = x y z`  Create a vector with name `name` and components `(x, y, z)` 
+ `name = a + b`  Create vector `name` as the sum of vectors `a` and `b` 
+ `name = a - b`  Create vector `name` as the difference of `a` and `b` 
+ `name = a * scalar`  Multiply vector `a` by a scalar value 
+ `name = a . b`  Compute the dot product of `a` and `b` (result stored as a vector with only an x-component) 
+ `name = a X b`  Compute the cross product of `a` and `b` 
+ `list`  Display all currently stored vectors 
+ `clear`  Free all allocated memory and remove all vectors 
+ `save <filename>`  Save all stored vectors to a text file 
+ `load <filename>`  Load vectors from a text file (overwrites current memory) 
+ `quit`  Exit the program 
+ `-h`  Display help information 
 
----
 
 ## e. Dynamic Memory Usage
 
@@ -58,14 +55,14 @@ Unlike static programs that predefine array sizes, this program dynamically allo
 
 - A global pointer `vector *memory` stores all active vectors.  
 - Each time a new vector is added, the program uses `realloc()` to expand the memory block:
-  ```c
+  
   memory = realloc(memory, vector_count * sizeof(vector));
-  ```
+  
 - This allows the list of vectors to grow as needed without setting a fixed limit.
 - When the user issues the `clear` command or when the program exits, all allocated memory is freed using:
-  ```c
+  
   free(memory);
-  ```
+  
 - The cleanup function `clear()` is automatically registered with `atexit()` to ensure memory is released even if the user quits unexpectedly.
 
 This design demonstrates safe, flexible use of dynamic memory management for storing an unknown quantity of user-defined data at runtime.
