@@ -36,16 +36,27 @@ There are no additional command-line options at startup; all interaction occurs 
 ## d. List of Commands
 
  `name = x y z`  Create a vector with name `name` and components `(x, y, z)` 
+
  `name = a + b`  Create vector `name` as the sum of vectors `a` and `b` 
+
  `name = a - b`  Create vector `name` as the difference of `a` and `b` 
+
  `name = a * scalar`  Multiply vector `a` by a scalar value 
+
  `name = a . b`  Compute the dot product of `a` and `b` (result stored as a vector with only an x-component) 
+
  `name = a X b`  Compute the cross product of `a` and `b` 
+
  `list`  Display all currently stored vectors 
+
  `clear`  Free all allocated memory and remove all vectors 
+
  `save <filename>`  Save all stored vectors to a text file 
+
  `load <filename>`  Load vectors from a text file (overwrites current memory) 
+
  `quit`  Exit the program 
+
  `-h`  Display help information 
 
 
